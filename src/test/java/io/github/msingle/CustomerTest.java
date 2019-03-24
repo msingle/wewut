@@ -43,60 +43,48 @@ public class CustomerTest {
         assertEquals(steveName, steve.getName());
         assertEquals(patName, pat.getName());
     }
-        @Test
+
+    @Test
     public void davidStatement() {
-        assertEquals(expStatement(
-                "Rental record for %s\n" +
-                        "%sAmount owed is %s\n" +
-                        "You earned %s frequent " +
+        assertEquals(
+                "Rental record for David\nAmount " +
+                        "owed is 0.0\n" +
+                        "You earned 0 frequent " +
                         "renter points",
-                david,
-                rentalInfo(
-                        "\t", "",
-                        david.getRentals())),
                 david.statement());
 
     }
 
     @Test
     public void johnStatement() {
-        assertEquals(expStatement(
-                "Rental record for %s\n" +
-                        "%sAmount owed is %s\n" +
-                        "You earned %s frequent " +
-                        "renter points",
-                john,
-                rentalInfo(
-                        "\t", "",
-                        john.getRentals())),
+        assertEquals(
+                "Rental record for John\n\t" +
+                        "Godfather 4\t9.0\n" +
+                        "Amount owed is 9.0\n" +
+                        "You earned 2 frequent renter points",
                 john.statement());
     }
 
     @Test
     public void patStatement() {
-        assertEquals(expStatement(
-                "Rental record for %s\n" +
-                        "%sAmount owed is %s\n" +
-                        "You earned %s frequent " +
-                        "renter points",
-                pat,
-                rentalInfo(
-                        "\t", "",
-                        pat.getRentals())),
+        assertEquals(
+                "Rental record for Pat\n\t" +
+                        "Godfather 4\t9.0\n" +
+                        "\tScarface\t3.5\n" +
+                        "\tLion King\t1.5\n" +
+                        "%sAmount owed is 14.0\n" +
+                        "You earned 4 frequent renter points",
                 pat.statement());
     }
 
     @Test
     public void steveStatement() {
-        assertEquals(expStatement(
-                "Rental record for %s\n" +
-                        "%sAmount owed is %s\n" +
-                        "You earned %s frequent " +
-                        "renter points",
-                steve,
-                rentalInfo(
-                        "\t", "",
-                        steve.getRentals())),
+        assertEquals(
+                "Rental record for Steve\n\t" +
+                        "Godfather 4\t9.0\n" +
+                        "\tScarface\t3.5\n" +
+                        "%sAmount owed is 12.5\n" +
+                        "You earned 3 frequent renter points",
                 steve.statement());
     }
 
