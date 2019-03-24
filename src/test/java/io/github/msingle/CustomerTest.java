@@ -43,21 +43,61 @@ public class CustomerTest {
         assertEquals(steveName, steve.getName());
         assertEquals(patName, pat.getName());
     }
+        @Test
+    public void davidStatement() {
+        assertEquals(expStatement(
+                "Rental record for %s\n" +
+                        "%sAmount owed is %s\n" +
+                        "You earned %s frequent " +
+                        "renter points",
+                david,
+                rentalInfo(
+                        "\t", "",
+                        david.getRentals())),
+                david.statement());
+
+    }
 
     @Test
-    public void statement() {
-        for (int i = 0; i < customers.length; i++) {
-            assertEquals(expStatement(
-                    "Rental record for %s\n" +
-                            "%sAmount owed is %s\n" +
-                            "You earned %s frequent " +
-                            "renter points",
-                    customers[i],
-                    rentalInfo(
-                            "\t", "",
-                            customers[i].getRentals())),
-                    customers[i].statement());
-        }
+    public void johnStatement() {
+        assertEquals(expStatement(
+                "Rental record for %s\n" +
+                        "%sAmount owed is %s\n" +
+                        "You earned %s frequent " +
+                        "renter points",
+                john,
+                rentalInfo(
+                        "\t", "",
+                        john.getRentals())),
+                john.statement());
+    }
+
+    @Test
+    public void patStatement() {
+        assertEquals(expStatement(
+                "Rental record for %s\n" +
+                        "%sAmount owed is %s\n" +
+                        "You earned %s frequent " +
+                        "renter points",
+                pat,
+                rentalInfo(
+                        "\t", "",
+                        pat.getRentals())),
+                pat.statement());
+    }
+
+    @Test
+    public void steveStatement() {
+        assertEquals(expStatement(
+                "Rental record for %s\n" +
+                        "%sAmount owed is %s\n" +
+                        "You earned %s frequent " +
+                        "renter points",
+                steve,
+                rentalInfo(
+                        "\t", "",
+                        steve.getRentals())),
+                steve.statement());
     }
 
     @Test
@@ -92,7 +132,7 @@ public class CustomerTest {
             String endswith,
             List<Rental> rentals) {
         String result = "";
-        for( Rental rental : rentals) {
+        for (Rental rental : rentals) {
             result += String.format(
                     "%s%s\t%s%s\n",
                     startsWith,
