@@ -1,4 +1,3 @@
-
 #!groovy
 
 def statuscolor = { currentBuild ->
