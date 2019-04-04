@@ -24,7 +24,7 @@ node {
     
     stage('Build (Maven)') {
       dir('/home/mts001/work/src/wewut/src') {
-        mvn 'verify'
+        sh 'mvn verify'
       }
     }
   }
